@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>State</title>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="http://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+</head>
+<body>  
+<div id="reactContainer"></div>
+<script type="text/babel">
+    let HelloBox = React.createClass({
+       render:function () {
+           return (<div>{'Hello '+this.props.Name}</div>)
+       }
+    });
+    ReactDOM.render(<HelloBox Name="jsjsjs"/>,document.getElementById('reactContainer'));
+</script>
+</body>
+</html>

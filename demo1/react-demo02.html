@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react-hello word!</title>
+</head>
+<body>
+<div id="divId"></div>
+</body>
+<script src="../js/react.js"></script>
+<script src="../js/react-dom.js"></script>
+<script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+<script type="text/babel">
+    var hello = React.createClass({
+        render:function () {
+            return <h1 style="color:red;">hello {this.props.name?this.props.name:'不存在'}</h1>
+        }
+    });
+    ReactDOM.render(<hello name="哈哈"/>,document.getElementById('divId'))
+</script>
+</html>

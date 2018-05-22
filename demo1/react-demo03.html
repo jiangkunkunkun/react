@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react-循环</title>
+</head>
+<body>
+    <div id="reactContainer"></div>
+    <div id="arrId"></div>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="http://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+    <script type="text/babel">
+        // 循环一
+        let names= ['Aname','名字A','Bname','名字B'];
+        var NameComponent = React.createClass({
+            render:function() {
+                return <div>
+                    { names.map(function (name) {
+                        return <div key={name}>Hello,{name}!</div>
+                    }) }
+                </div>
+            }
+        });
+        ReactDOM.render(
+                <NameComponent/>,document.getElementById('reactContainer'));
+         //循环二
+            var demo2 = [
+                <h1 key="1">hello1</h1>,
+                <h1 key="2">hello2</h1>,
+            ]
+            ReactDOM.render(<div>{demo2}</div>,document.getElementById('arrId'));
+    </script>
+</body>
+</html>

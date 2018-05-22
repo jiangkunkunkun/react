@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>props.children</title>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="http://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+</head>
+<body>  
+<div id="demo"></div>
+<script type="text/babel">
+    let NotesList = React.createClass({
+        render: function () {
+            return (
+                    <ol>
+                        {React.Children.map(this.props.children, function (children) {
+                            return (
+                                    <li>{children}</li>
+                            )
+                        })
+                        }
+                    </ol>
+            )
+        }
+    });
+    ReactDOM.render(<NotesList>
+        <span>name</span>
+        <p>姓名</p>
+        <span>Aname</span>
+    </NotesList>, document.getElementById('demo'));
+</script>
+</body>
+</html>

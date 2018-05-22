@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钩子函数</title>
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <script src="http://cdn.bootcss.com/babel-core/5.8.38/browser.min.js"></script>
+</head>
+<body>  
+<div id="demo"></div>
+<script type="text/babel">
+    let DemoHtml = React.createClass({
+        getInitialState:function () {
+            console.log('1.getInitialState 初始化状态');
+            return {count:1}
+        },
+        // 挂在虚拟dom
+        componentWillMount:function () {
+            console.log('2.componentWillMount 将要挂在虚拟DOM')
+        },
+        // 挂在虚拟DOM完毕
+        componentDidMount:function () {
+            console.log('3.componentDidMount 挂在虚拟DOM完毕')
+        },
+        // 将要更新组件 componentWillUpdate
+        componentWillUpdate:function () {
+            console.log('4.componentWillUpdate 将要更新组件')
+        },
+        componentDidUpdate:function () {
+            console.log('5.componentDidUpdate 更新完成')
+        },
+        btnClick:function () {
+          this.setState({count:this.state.count+1})
+        },
+        render:function () {
+            return (
+                    <p>{this.state.count}<br/>
+                        <button onClick={this.btnClick}>Add</button>
+                    </p>
+            )
+        }
+    });
+    ReactDOM.render(<DemoHtml/>,document.getElementById('demo'));
+</script>
+</body>
+</html>
